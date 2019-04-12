@@ -38,7 +38,7 @@ export function TodoItem({ actions, isEditing, todo }) {
   };
 
   return (
-    <li class={classcat(itemClassList)}>
+    <li class={classcat(itemClassList)} key={todo.id}>
       <div class='view'>
         <input
           class='toggle'
