@@ -1,0 +1,26 @@
+{
+  "name": "todomvc-superfine",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-scripts": "latest"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "classcat": "^3.2.5",
+    "pico-redux": "^1.2.1",
+    "superfine": "^6.0.1",
+    "todomvc-app-css": "^2.2.0"
+  }
+}
