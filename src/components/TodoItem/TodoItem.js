@@ -1,5 +1,4 @@
-/** @jsx h*/
-import { h } from 'superfine';
+import React from '../../createElement';
 import classcat from 'classcat';
 
 const ESCAPE_KEY = 27;

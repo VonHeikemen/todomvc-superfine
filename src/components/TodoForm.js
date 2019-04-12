@@ -1,5 +1,4 @@
-/** @jsx h*/
-import { h } from 'superfine';
+import React from '../createElement';
 
 function handleSubmit(handler, event) {
   if (event === undefined) {

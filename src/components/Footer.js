@@ -1,5 +1,4 @@
-/** @jsx h*/
-import { h } from 'superfine';
+import React from '../createElement';
 import classcat from 'classcat';
 
 function FilterLink({ text, filter, selectedFilter }) {

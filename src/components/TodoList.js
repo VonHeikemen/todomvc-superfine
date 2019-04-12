@@ -1,5 +1,4 @@
-/** @jsx h*/
-import { h } from 'superfine';
+import React from '../createElement';
 import { Fragment } from './Fragment';
 import TodoItem from './TodoItem';
  
