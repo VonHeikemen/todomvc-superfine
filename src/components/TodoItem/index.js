@@ -9,7 +9,6 @@ function mapDispatchToProps(dispatch) {
       {
         ...Actions.todoActions,
         ...Actions.editActions,
-        ...Actions.completedListActions
       },
       dispatch
     )
