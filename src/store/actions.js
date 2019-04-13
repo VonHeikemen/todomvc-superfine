@@ -1,3 +1,5 @@
+import * as persist from './persist';
+
 const addTodo = value => ({
   type: 'ADD_TODO',
   todo: {
@@ -57,9 +59,10 @@ const clearCompleted = () => ({
   type: 'CLEAR_COMPLETED'
 });
 
-const deleteTodo = id => dispatch => {
+const deleteTodo = id => (dispatch, getState) => {
   dispatch(removeCompleted(id));
   dispatch(removeTodo(id));
+  persist.save(getState());
 };
 
 const deleteCompleted = () => (dispatch, getState) => {
@@ -68,6 +71,7 @@ const deleteCompleted = () => (dispatch, getState) => {
 
   dispatch(removeTodos(completed));
   dispatch(clearCompleted());
+  persist.save(getState());
 };
 
 const markAll = () => (dispatch, getState) => {
@@ -85,12 +89,20 @@ const markAll = () => (dispatch, getState) => {
   let items = Array.from(state.todos.values()).reduce(filterItems, []);
 
   dispatch(toggleTodos(items));
+  persist.save(getState());
 };
 
+function withSave(actionCreator) {
+  return (...args) => (dispatch, getState) => {
+    dispatch(actionCreator(...args));
+    persist.save(getState());
+  };
+}
+
 export const todoActions = {
-  addTodo,
-  updateTodo,
-  toggleTodo,
+  addTodo: withSave(addTodo),
+  updateTodo: withSave(updateTodo),
+  toggleTodo: withSave(toggleTodo),
   deleteTodo,
   deleteCompleted,
   markAll

@@ -2,7 +2,6 @@
 
 import { patch } from 'superfine';
 import { store } from './store';
-import * as persist from './store/persist';
 import App from './components/App';
 
 import 'todomvc-app-css/index.css';
@@ -17,10 +16,8 @@ const app = (container, node) => () => {
 };
 
 const render = app(document.getElementById('root'));
-const saveState = () => persist.save(store.getState());
 
 store.subscribe(render);
-store.subscribe(saveState);
 
 window.addEventListener('hashchange', render); 
 
