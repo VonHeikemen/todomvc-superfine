@@ -1,14 +1,10 @@
 const STORAGE_KEY = 'vh-todomvc-superfine';
 
-function setToArray(data) {
-  return Array.from(data.entries());
-}
-
 function serialize(state) {
   let data = {...state};
 
-  data.todos = setToArray(data.todos);
-  data.completed = setToArray(data.completed);
+  data.todos = Array.from(data.todos.entries());
+  data.completed = Array.from(data.completed.values());
 
   return JSON.stringify(data);
 }
